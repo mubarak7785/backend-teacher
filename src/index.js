@@ -12,10 +12,13 @@ app.post ("/login",login)
 
 
 const userController = require ("./controllers/user.controller")
-const postController = require("./controllers/post.controller");
+const teacherController=require("./controllers/teacher.controller")
+const classesController=require("./controllers/class.controller")
 
-app.use("/post", postController);
-app.use ("users",userController)
+
+app.use("/teachers",teacherController)
+app.use("/classes",classesController)
+
 
 app.listen(port,async function (req,res){
     try{
