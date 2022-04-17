@@ -43,7 +43,7 @@ router.get("", async function (req, res) {
     }
     const teacher = await Teacher.find().skip((page-1)*size).limit(size).lean().exec();
     const totalpages=Math.ceil((await Teacher.find().countDocuments())/size)
-    return res.status(201).send(teacher);
+    return res.status(201).send({teacher,totalpages});
   } catch (err) {
     return res.status(500).send(err.message);
   }
