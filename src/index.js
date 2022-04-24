@@ -3,6 +3,7 @@ const cors = require("cors")
 
 
 const app = express()
+app.use(cors())
 const port=process.env.PORT || 4321
 app.use(express.json())
 const connect = require("./configs/db")
@@ -21,7 +22,7 @@ const classesController=require("./controllers/class.controller")
 app.use("/teachers",teacherController)
 app.use("/classes",classesController)
 
-app.use(cors())
+
 
 app.listen(port,async function (req,res){
     try{
